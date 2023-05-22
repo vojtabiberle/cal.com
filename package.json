@@ -49,7 +49,7 @@
     "env-check:app-store": "dotenv-checker --schema .env.appStore.example --env .env.appStore",
     "env-check:common": "dotenv-checker --schema .env.example --env .env",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "heroku-postbuild": "turbo run @calcom/web#build",
+    "heroku-postbuild": "cd packages/prisma && npx prisma migrate deploy && cd ../.. && turbo run @calcom/web#build",
     "lint:fix": "turbo run lint:fix",
     "lint:report": "turbo run lint:report",
     "lint": "turbo run lint",
